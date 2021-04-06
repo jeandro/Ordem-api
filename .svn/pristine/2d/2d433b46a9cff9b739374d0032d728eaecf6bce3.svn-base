@@ -1,0 +1,94 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.gtasistemas.control.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+
+/**
+ *
+ * @author Jeandro
+ */
+@Entity
+public class Agenda implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue
+    private Long codigo;
+    //private Integer cliente;
+    @ManyToOne
+    @JoinColumn(name = "idcliente", nullable = false)
+    private Cliente clienteagenda;
+    //private Integer responsavel;
+    @ManyToOne
+    @JoinColumn(name = "idresponsavel", nullable = false)
+    private Usuario usuarioagenda;
+    @Column(columnDefinition = "TEXT")
+    private String problema;
+    @Column(columnDefinition = "TEXT")
+    private String solucao;
+    private String status;
+    private String usuarioagendamento;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date data_hora_usuarioagendamento;
+    private String usuariofechamento;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date data_hora_usuariofechamento;
+    private String usuariocontato;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date data_hora_usuariocontato;
+    private String usuarioprotocolo;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date data_hora_usuarioprotocolo;
+    private String usuarioavaliacaoatendimento;
+    @Column(columnDefinition = "TEXT")
+    private String obsavaliacaodoatendimento;
+    private String avaliacaodoatendimento;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "datainicio")
+    private Date dataInicio;
+    @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "horainicio")
+    private Date horaInicio;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "datafim")
+    private Date dataFim;
+    @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "horafim")
+    private Date horaFim;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "datacontato")
+    private Date dataContato;
+    @Temporal(javax.persistence.TemporalType.TIME)
+    @Column(name = "horacontato")
+    private Date horaContato;
+    private String contato;
+    private Integer controle;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date data_hora_usuarioimpresao;
+    private String usuarioimpresao;
+
+
+}

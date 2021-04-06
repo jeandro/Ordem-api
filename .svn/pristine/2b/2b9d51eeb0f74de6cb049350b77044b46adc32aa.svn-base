@@ -1,0 +1,91 @@
+
+CREATE TABLE public.agenda (
+    codigo SERIAL PRIMARY KEY,
+    avaliacaodoatendimento character varying(255),
+    contato character varying(255),
+    controle integer,
+    datacontato date,
+    datafim date,
+    datainicio date,
+    data_hora_usuarioagendamento timestamp without time zone,
+    data_hora_usuariocontato timestamp without time zone,
+    data_hora_usuariofechamento timestamp without time zone,
+    data_hora_usuarioimpresao timestamp without time zone,
+    data_hora_usuarioprotocolo timestamp without time zone,
+    horacontato time without time zone,
+    horafim time without time zone,
+    horainicio time without time zone,
+    obsavaliacaodoatendimento text,
+    problema text,
+    solucao text,
+    status character varying(255),
+    usuarioagendamento character varying(255),
+    usuarioavaliacaoatendimento character varying(255),
+    usuariocontato character varying(255),
+    usuariofechamento character varying(255),
+    usuarioimpresao character varying(255),
+    usuarioprotocolo character varying(255),
+    idcliente integer NOT NULL,
+    idresponsavel integer NOT NULL
+);
+
+
+
+CREATE TABLE public.categoria (
+    codigo SERIAL PRIMARY KEY,
+    descricao character varying(255),
+    fator integer NOT NULL,
+    categoria_pai integer,
+    usuario integer
+);
+
+
+CREATE TABLE public.cidade (
+    codigo SERIAL PRIMARY KEY,
+    codibge character varying(255),
+    nome character varying(255)
+);
+
+
+
+CREATE TABLE public.cliente (
+    codigo SERIAL PRIMARY KEY,
+    chave character varying(255),
+    celular character varying(255),
+    celularresponsavel character varying(255),
+    cep character varying(255),
+    cnpj character varying(255),
+    complemento character varying(255),
+    contador character varying(255),
+    cpfresponsavel character varying(255),
+    datainicio date,
+    diapagamento integer,
+    email character varying(255),
+    endereco character varying(255),
+    inscricao character varying(255),
+    nomefantasia character varying(255),
+    nomeresponsavel character varying(255),
+    razao character varying(255),
+    telefone character varying(255),
+    idcidade integer NOT NULL
+);
+
+
+CREATE TABLE public.login (
+    codigo SERIAL PRIMARY KEY,
+    datahoralogin timestamp without time zone,
+    usuario character varying(255)
+);
+
+
+CREATE TABLE public.usuario (
+    codigo SERIAL PRIMARY KEY,
+    ativo boolean NOT NULL,
+    celular character varying(255),
+    email character varying(255),
+    login character varying(255),
+    nascimento date,
+    nome character varying(255),
+    permissao character varying(255),
+    senha character varying(255)
+);

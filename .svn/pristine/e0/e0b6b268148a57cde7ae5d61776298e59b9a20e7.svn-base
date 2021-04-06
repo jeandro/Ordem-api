@@ -1,0 +1,62 @@
+package br.com.gtasistemas.control.model;
+
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+
+@Entity
+public class Categoria implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
+	private Long codigo;
+
+	@SuppressWarnings("deprecation")
+	@ManyToOne
+	@JoinColumn(name = "categoria_pai", nullable = true)
+	@org.hibernate.annotations.ForeignKey(name = "fk_categoria_categoria")
+	private Categoria pai;
+
+	@SuppressWarnings("deprecation")
+	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "usuario")
+	@org.hibernate.annotations.ForeignKey(name = "fk_categoria_usuario")
+	private Usuario usuario;
+
+	@SuppressWarnings("unused")
+	private String descricao;
+
+	@SuppressWarnings("unused")
+	private int fator;
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "categoria_pai", updatable = false)
+	@org.hibernate.annotations.OrderBy(clause = "descricao asc")
+	private List<Categoria> filhos;
+
+}

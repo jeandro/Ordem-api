@@ -1,0 +1,9 @@
+server.port = 6600
+
+spring.jpa.database=POSTGRESQL
+spring.datasource.url=jdbc:postgresql://localhost:5432/control?createDatabaseIfNotExist=true&useSSL=false
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+spring.jpa.show-sql=true
+spring.jackson.deserialization.fail-on-unknown-properties=true

@@ -1,0 +1,8 @@
+package br.com.gtasistemas.control.repository;
+
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
+import br.com.gtasistemas.control.model.Cidade;
+
+public interface CidadeRepository extends JpaRepositoryImplementation<Cidade, Long> {
+
+}

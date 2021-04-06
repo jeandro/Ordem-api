@@ -1,0 +1,62 @@
+package br.com.gtasistemas.control.model;
+
+import java.io.*;
+import java.util.*;
+import javax.persistence.*;
+
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
+
+/**
+ *
+ * @author Jeandro
+ */
+@Entity
+public class Cliente implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue
+    private Long codigo;
+    @Column(name = "nomefantasia")
+    private String nomeFantasia;
+    @org.hibernate.annotations.NaturalId(mutable = true)
+    private String razao;
+    private String email;
+    @org.hibernate.annotations.NaturalId(mutable = true)
+    private String cnpj;
+    @org.hibernate.annotations.NaturalId(mutable = true)
+    private String inscricao;
+    @Column(name = "nomeresponsavel")
+    private String nomeResponsavel;
+    @Column(name = "cpfresponsavel")
+    private String cpfResponsavel;
+    @Column(name = "celularresponsavel")
+    private String celularResponsavel;
+    private String endereco;
+    private String complemento;
+    private String cep;
+    private String telefone;
+    private String celular;
+    @Column(name = "diapagamento")
+    private Integer diaPagamento;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "datainicio")
+    private Date dataInicio;
+    private String contador;
+    private String Chave;
+
+    @ManyToOne
+    @JoinColumn(name = "idcidade", nullable = false)
+    private Cidade cidadecliente;
+
+
+}
