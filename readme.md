@@ -1,5 +1,5 @@
 # BackendSeniorJeandroCorreia 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/jeandro/Ordem-api/blob/master/LICENSELICENSE) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/jeandro/Ordem-api/blob/master/LICENSE) 
 
 # Sobre o projeto
 
