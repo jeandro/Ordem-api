@@ -72,7 +72,7 @@ com a aplicação em execução.
 
 ```
 
-## clonar repositório
+## Clonar repositório
 
 ```bash
 # https://github.com/jeandro/Ordem-api
